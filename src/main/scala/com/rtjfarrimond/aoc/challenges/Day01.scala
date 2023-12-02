@@ -1,18 +1,17 @@
+package com.rtjfarrimond.aoc.challenges
+
+import com.rtjfarrimond.aoc.Challenge
+
 import scala.annotation.tailrec
 
-@main def run(): Unit =
-  val input = InputLoader.load("day01.txt").toList
-  println(s"Part1: ${Day01.part1(input)}")
-  println(s"Part2: ${Day01.part2(input)}")
-
-object Day01 {
+object Day01 extends Challenge(1) {
 
   private val numberChars = '0' to '9'
 
-  def part1(input: List[String]): Int =
+  override def part1(input: List[String]): Int =
     lineToInt(input).sum
 
-  def part2(input: List[String]): Int =
+  override def part2(input: List[String]): Int =
     lineToInt(input.map(parseNumbers)).sum
 
   private def lineToInt(input: List[String]): List[Int] =
