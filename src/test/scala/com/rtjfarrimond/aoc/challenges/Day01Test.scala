@@ -1,8 +1,8 @@
 package com.rtjfarrimond.aoc.challenges
 
-import com.rtjfarrimond.aoc.challenges.Day01
+import munit.FunSuite
 
-class Day01Test extends munit.FunSuite {
+class Day01Test extends FunSuite {
   test("part1") {
     val input = List(
       "1abc2",
