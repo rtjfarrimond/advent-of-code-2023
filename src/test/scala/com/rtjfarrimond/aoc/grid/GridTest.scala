@@ -32,14 +32,14 @@ class GridTest extends FunSuite {
 
   test("adjacent should return all 8 adjacent values") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 0, y = 0), a = 1),
-      Grid.Cell(Coordinate(x = 1, y = 0), a = 2),
-      Grid.Cell(Coordinate(x = 2, y = 0), a = 3),
-      Grid.Cell(Coordinate(x = 0, y = 1), a = 4),
-      Grid.Cell(Coordinate(x = 2, y = 1), a = 6),
-      Grid.Cell(Coordinate(x = 0, y = 2), a = 7),
-      Grid.Cell(Coordinate(x = 1, y = 2), a = 8),
-      Grid.Cell(Coordinate(x = 2, y = 2), a = 9)
+      Grid.Cell(Coordinate(x = 0, y = 0), value = 1),
+      Grid.Cell(Coordinate(x = 1, y = 0), value = 2),
+      Grid.Cell(Coordinate(x = 2, y = 0), value = 3),
+      Grid.Cell(Coordinate(x = 0, y = 1), value = 4),
+      Grid.Cell(Coordinate(x = 2, y = 1), value = 6),
+      Grid.Cell(Coordinate(x = 0, y = 2), value = 7),
+      Grid.Cell(Coordinate(x = 1, y = 2), value = 8),
+      Grid.Cell(Coordinate(x = 2, y = 2), value = 9)
     )
     val actual = grid.adjacent(1, 1)
     assertEquals(actual.size, 8)
@@ -49,11 +49,11 @@ class GridTest extends FunSuite {
   test("adjacent return 5 adjacent values when given coordinate on top row") {
 
     val expected = Set(
-      Grid.Cell(Coordinate(x = 0, y = 0), a = 1),
-      Grid.Cell(Coordinate(x = 2, y = 0), a = 3),
-      Grid.Cell(Coordinate(x = 0, y = 1), a = 4),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 2, y = 1), a = 6),
+      Grid.Cell(Coordinate(x = 0, y = 0), value = 1),
+      Grid.Cell(Coordinate(x = 2, y = 0), value = 3),
+      Grid.Cell(Coordinate(x = 0, y = 1), value = 4),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 2, y = 1), value = 6),
     )
     val actual = grid.adjacent(x = 1, y = 0)
     assertEquals(actual.size, 5)
@@ -62,11 +62,11 @@ class GridTest extends FunSuite {
 
   test("adjacent return 5 adjacent values when given coordinate on bottom row") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 0, y = 1), a = 4),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 2, y = 1), a = 6),
-      Grid.Cell(Coordinate(x = 0, y = 2), a = 7),
-      Grid.Cell(Coordinate(x = 2, y = 2), a = 9)
+      Grid.Cell(Coordinate(x = 0, y = 1), value = 4),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 2, y = 1), value = 6),
+      Grid.Cell(Coordinate(x = 0, y = 2), value = 7),
+      Grid.Cell(Coordinate(x = 2, y = 2), value = 9)
     )
     val actual = grid.adjacent(x = 1, y = 2)
     assertEquals(actual.size, 5)
@@ -75,11 +75,11 @@ class GridTest extends FunSuite {
 
   test("adjacent return 5 adjacent values when given coordinate on leftmost column") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 0, y = 0), a = 1),
-      Grid.Cell(Coordinate(x = 1, y = 0), a = 2),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 0, y = 2), a = 7),
-      Grid.Cell(Coordinate(x = 1, y = 2), a = 8),
+      Grid.Cell(Coordinate(x = 0, y = 0), value = 1),
+      Grid.Cell(Coordinate(x = 1, y = 0), value = 2),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 0, y = 2), value = 7),
+      Grid.Cell(Coordinate(x = 1, y = 2), value = 8),
     )
     val actual = grid.adjacent(x = 0, y = 1)
     assertEquals(actual.size, 5)
@@ -88,11 +88,11 @@ class GridTest extends FunSuite {
 
   test("adjacent return 5 adjacent values when given coordinate on rightmost column") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 1, y = 0), a = 2),
-      Grid.Cell(Coordinate(x = 2, y = 0), a = 3),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 1, y = 2), a = 8),
-      Grid.Cell(Coordinate(x = 2, y = 2), a = 9)
+      Grid.Cell(Coordinate(x = 1, y = 0), value = 2),
+      Grid.Cell(Coordinate(x = 2, y = 0), value = 3),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 1, y = 2), value = 8),
+      Grid.Cell(Coordinate(x = 2, y = 2), value = 9)
     )
     val actual = grid.adjacent(x = 2, y = 1)
     assertEquals(actual.size, 5)
@@ -101,9 +101,9 @@ class GridTest extends FunSuite {
 
   test("adjacent return 3 adjacent values when given the top-left coordinate") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 1, y = 0), a = 2),
-      Grid.Cell(Coordinate(x = 0, y = 1), a = 4),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
+      Grid.Cell(Coordinate(x = 1, y = 0), value = 2),
+      Grid.Cell(Coordinate(x = 0, y = 1), value = 4),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
     )
     val actual = grid.adjacent(0 ,0)
     assertEquals(actual.size, 3)
@@ -112,9 +112,9 @@ class GridTest extends FunSuite {
 
   test("adjacent return 3 adjacent values when given the top-right coordinate") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 1, y = 0), a = 2),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 2, y = 1), a = 6),
+      Grid.Cell(Coordinate(x = 1, y = 0), value = 2),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 2, y = 1), value = 6),
     )
     val actual = grid.adjacent(x = 2, y = 0)
     assertEquals(actual.size, 3)
@@ -123,9 +123,9 @@ class GridTest extends FunSuite {
 
   test("adjacent return 3 adjacent values when given the bottom-left coordinate") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 0, y = 1), a = 4),
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 1, y = 2), a = 8),
+      Grid.Cell(Coordinate(x = 0, y = 1), value = 4),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 1, y = 2), value = 8),
     )
     val actual = grid.adjacent(x = 0, y = 2)
     assertEquals(actual.size, 3)
@@ -134,9 +134,9 @@ class GridTest extends FunSuite {
 
   test("adjacent return 3 adjacent values when given the bottom-right coordinate") {
     val expected = Set(
-      Grid.Cell(Coordinate(x = 1, y = 1), a = 5),
-      Grid.Cell(Coordinate(x = 2, y = 1), a = 6),
-      Grid.Cell(Coordinate(x = 1, y = 2), a = 8),
+      Grid.Cell(Coordinate(x = 1, y = 1), value = 5),
+      Grid.Cell(Coordinate(x = 2, y = 1), value = 6),
+      Grid.Cell(Coordinate(x = 1, y = 2), value = 8),
     )
     val actual = grid.adjacent(x = 2, y = 2)
     assertEquals(actual.size, 3)

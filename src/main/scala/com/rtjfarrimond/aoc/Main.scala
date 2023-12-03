@@ -1,6 +1,7 @@
 import com.rtjfarrimond.aoc.Challenge
 import com.rtjfarrimond.aoc.challenges.*
 import com.rtjfarrimond.aoc.challenges.day02.Day02
+import com.rtjfarrimond.aoc.challenges.day03.Day03
 
 @main def run(dayNumber: Int): Unit =
   // TODO: Automate updates to this set
