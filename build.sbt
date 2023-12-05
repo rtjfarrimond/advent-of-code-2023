@@ -10,6 +10,3 @@ lazy val root = project
 
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
   )
-advent - of - code - 2023 / libraryDependencies ++= Seq(
-  "org.scalameta" %% "munit" % "latest.integration" % Test
-)

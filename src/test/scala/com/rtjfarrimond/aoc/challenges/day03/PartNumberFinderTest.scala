@@ -16,13 +16,15 @@ class PartNumberFinderTest extends FunSuite {
       "..592.....",
       "......755.",
       "...$.*....",
-      ".664.598.."
+      ".664.598..",
+      "..........",
+      "..2*21....",
     )
     val schematics = input.map(_.toCharArray.toList.map(SchematicTile.apply))
     val grid = Grid(schematics)
 
     val actual = new PartNumberFinder(grid).partNumbers.sorted
-    val expected = List(467, 35, 633, 617, 592, 755, 664, 598).sorted
+    val expected = List(467, 35, 633, 617, 592, 755, 664, 598, 2, 21).sorted
     assertEquals(actual, expected)
   }
 

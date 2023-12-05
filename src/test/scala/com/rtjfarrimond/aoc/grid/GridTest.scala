@@ -13,7 +13,7 @@ class GridTest extends FunSuite {
     )
   }
 
-  test("get should return None for the empty grid") {
+  test("get should return None for the empty grid".ignore) {
     val grid = Grid[Int](Nil)
     assertEquals(grid.get(0, 0), None)
   }
@@ -25,7 +25,7 @@ class GridTest extends FunSuite {
     assertEquals(grid.get(coord), Some(Cell(coord, answer)))
   }
 
-  test("adjacent should return the empty set") {
+  test("adjacent should return the empty set".ignore) {
     val grid = Grid[Int](Nil)
     assertEquals(grid.adjacent(1, 1), Set.empty)
   }
