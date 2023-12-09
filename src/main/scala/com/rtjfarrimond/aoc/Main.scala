@@ -3,6 +3,7 @@ import com.rtjfarrimond.aoc.challenges.*
 import com.rtjfarrimond.aoc.challenges.day02.Day02
 import com.rtjfarrimond.aoc.challenges.day03.Day03
 import com.rtjfarrimond.aoc.challenges.day04.Day04
+import com.rtjfarrimond.aoc.challenges.day05.Day05
 
 @main def run(dayNumber: Int): Unit =
   // TODO: Automate updates to this set
@@ -10,7 +11,8 @@ import com.rtjfarrimond.aoc.challenges.day04.Day04
     Day01,
     Day02,
     Day03,
-    Day04
+    Day04,
+    Day05
   )
   allChallenges.find(_.dayNumber == dayNumber) match
     case Some(challenge) =>

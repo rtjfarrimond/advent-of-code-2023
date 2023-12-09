@@ -11,9 +11,9 @@ trait Challenge(val dayNumber: Int) {
     val inputResourceName = s"day$dayNumberString.txt"
     Source.fromResource(inputResourceName).getLines().toList
 
-  def part1(input: List[String]): Int
+  def part1(input: List[String]): Int | Long
 
-  def part2(input: List[String]): Int
+  def part2(input: List[String]): Int | Long
 
   final def run(): Unit =
     println(s"Part1: ${part1(input)}")
