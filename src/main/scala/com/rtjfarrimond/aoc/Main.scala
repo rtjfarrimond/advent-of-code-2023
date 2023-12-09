@@ -2,13 +2,15 @@ import com.rtjfarrimond.aoc.Challenge
 import com.rtjfarrimond.aoc.challenges.*
 import com.rtjfarrimond.aoc.challenges.day02.Day02
 import com.rtjfarrimond.aoc.challenges.day03.Day03
+import com.rtjfarrimond.aoc.challenges.day04.Day04
 
 @main def run(dayNumber: Int): Unit =
   // TODO: Automate updates to this set
   val allChallenges: Set[Challenge] = Set(
     Day01,
     Day02,
-    Day03
+    Day03,
+    Day04
   )
   allChallenges.find(_.dayNumber == dayNumber) match
     case Some(challenge) =>
