@@ -16,8 +16,8 @@ class Day04Test extends FunSuite {
     assertEquals(Day04.part1(input), 13)
   }
 
-  test("part 2".ignore) {
-    assertEquals(Day04.part2(input), 123)
+  test("part 2") {
+    assertEquals(Day04.part2(input), 30)
   }
 
 }

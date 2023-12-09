@@ -1,10 +1,8 @@
 package com.rtjfarrimond.aoc.challenges.day04
 
 case class ScratchCard(id: Int, givenNumbers: Set[Int], winningNumbers: Set[Int]) {
-  val score: Int = {
-    val intersection = givenNumbers.intersect(winningNumbers)
-    scala.math.pow(2, intersection.size - 1).toInt
-  }
+  val intersection: Set[Int] = givenNumbers.intersect(winningNumbers)
+  val score: Int = scala.math.pow(2, intersection.size - 1).toInt
 }
 
 object ScratchCard {
