@@ -82,5 +82,19 @@ class AlmanacTest extends FunSuite {
     assertEquals(obtained, expected)
   }
 
+  test("seedRanges should expand the list of seeds") {
+    val emptyGardenMap = GardenMap(Nil)
+    val almanac = Almanac(
+      seeds = List(40, 3, 10, 5),
+      seedsToSoil = emptyGardenMap,
+      soilToFertilizer = emptyGardenMap,
+      fertilizerToWater = emptyGardenMap,
+      waterToLight = emptyGardenMap,
+      lightToTemperature = emptyGardenMap,
+      temperatureToHumidity = emptyGardenMap,
+      humidityToLocation = emptyGardenMap
+    )
+    assertEquals(almanac.seedRanges, List(40L, 41L, 42L, 10L, 11L, 12L, 13L, 14L))
+  }
 
 }

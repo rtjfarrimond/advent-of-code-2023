@@ -10,7 +10,15 @@ case class Almanac(
   temperatureToHumidity: GardenMap,
   humidityToLocation: GardenMap,
 ) {
-  val seedLocations: List[Long] = seeds.map { seed =>
+  val seedLocations: List[Long] = seeds.map(seedToLocation)
+
+  val seedRanges: List[Long] = seeds.sliding(size = 2, step = 2).flatMap { seedRange =>
+    seedRange.head until seedRange.head + seedRange.last
+  }.toList
+
+  val seedRangeLocations: List[Long] = seedRanges.map(seedToLocation)
+
+  private def seedToLocation(seed: Long): Long = {
     seedsToSoil.getDestination
       .andThen(soilToFertilizer.getDestination)
       .andThen(fertilizerToWater.getDestination)
@@ -19,6 +27,7 @@ case class Almanac(
       .andThen(temperatureToHumidity.getDestination)
       .andThen(humidityToLocation.getDestination)(seed)
   }
+
 }
 
 object Almanac {
@@ -37,7 +46,9 @@ object Almanac {
     )
   }
 
-  private def extractGardenMap(input: List[String], identifier: String): GardenMap =
-    GardenMap(input.dropWhile(_ != identifier).tail.takeWhile(_.nonEmpty).map(MappedRange.parse))
+  private def extractGardenMap(input: List[String], identifier: String): GardenMap = {
+    val mappedRanges = input.dropWhile(_ != identifier).tail.takeWhile(_.nonEmpty).map(MappedRange.parse)
+    GardenMap(mappedRanges)
+  }
 
 }
