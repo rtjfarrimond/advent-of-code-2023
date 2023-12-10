@@ -11,4 +11,9 @@ class MappedRangeTest extends FunSuite {
     assertEquals(obtained, expected)
   }
 
+  test("contains should be true for a value between start and end") {
+    val mappedRange = MappedRange(sourceStart = 98, destinationStart = 50, length = 10)
+    assert(mappedRange.contains(99))
+  }
+
 }
