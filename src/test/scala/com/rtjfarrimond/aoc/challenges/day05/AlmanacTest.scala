@@ -94,7 +94,7 @@ class AlmanacTest extends FunSuite {
       temperatureToHumidity = emptyGardenMap,
       humidityToLocation = emptyGardenMap
     )
-    assertEquals(almanac.seedRanges, List(40L, 41L, 42L, 10L, 11L, 12L, 13L, 14L))
+    assertEquals(almanac.seedRanges.toList, List(40L, 41L, 42L, 10L, 11L, 12L, 13L, 14L))
   }
 
 }

@@ -7,5 +7,7 @@ object Day05 extends Challenge(5) {
     Almanac.parse(input).seedLocations.min
 
   override def part2(input: List[String]): Long =
-    Almanac.parse(input).seedRangeLocations.min
+    val almanac = Almanac.parse(input)
+    almanac.seedRanges.map(almanac.seedToLocation).min
+
 }

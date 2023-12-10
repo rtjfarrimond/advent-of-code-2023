@@ -12,13 +12,11 @@ case class Almanac(
 ) {
   val seedLocations: List[Long] = seeds.map(seedToLocation)
 
-  val seedRanges: List[Long] = seeds.sliding(size = 2, step = 2).flatMap { seedRange =>
-    seedRange.head until seedRange.head + seedRange.last
-  }.toList
+  val seedRanges: Iterator[Long] = seeds.iterator.sliding(size = 2, step = 2).flatMap { seedRange =>
+    Iterator.iterate(seedRange.head)(_ + 1L).take(seedRange.last.toInt)
+  }
 
-  val seedRangeLocations: List[Long] = seedRanges.map(seedToLocation)
-
-  private def seedToLocation(seed: Long): Long = {
+  def seedToLocation(seed: Long): Long = {
     seedsToSoil.getDestination
       .andThen(soilToFertilizer.getDestination)
       .andThen(fertilizerToWater.getDestination)
