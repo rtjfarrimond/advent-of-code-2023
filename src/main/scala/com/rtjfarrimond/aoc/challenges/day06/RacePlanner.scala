@@ -4,15 +4,15 @@ import scala.annotation.tailrec
 
 object RacePlanner {
 
-  def plan(race: Race): Set[Long] = {
+  def plan(race: Race): Long = {
 
     @tailrec
-    def loop(race: Race, remainingTime: Int, speed: Int = 0, acc: Set[Long] = Set.empty): Set[Long] = {
+    def loop(race: Race, remainingTime: Long, speed: Long = 0, acc: Long = 0): Long = {
       if (remainingTime == 0) acc
       else
         val distance = speed * remainingTime
         if (distance > race.recordDistance)
-          loop(race, remainingTime - 1, speed + 1, acc.incl(speed))
+          loop(race, remainingTime - 1, speed + 1, acc + 1)
         else
           loop(race, remainingTime - 1, speed + 1, acc)
     }
